@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/login_and_reg.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <div class="container">
+                <div class="header-split">
+                    <a href="/register">
+                        <h2 class="register-unselected">Sign Up</h2>
+                    </a>
+                    <h2>Log In</h2>
+                </div>
+                <form action="/user/login" method="post" autocomplete="off">
+                    <input type="text" placeholder="Email" name="email">
+                    <input type="password" placeholder="Password" name="password">
+                    {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                    {% for message in messages %}
+                    <div class="flash-container">
+                        <p class="flash-msg">{{message}}</p>
+                    </div>
+                    {% endfor %}
+                    {% endwith %}
+                    <a href="#">Forgot Password?</a>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--Linking an image: <img src="{{ url_for('static', filename='my_img.png') }}"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='./css/my_script.js') }}"></script> -->
+</body>
+
+</html>

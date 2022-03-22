@@ -1,0 +1,100 @@
+@import url("../style/base.css");
+@import url("../style/navigation.css");
+
+nav {
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 77px;
+}
+
+.container {
+    margin-top: 100px;
+    width: auto;
+    height: max-content;
+    border: 2px solid rgb(185, 185, 185);
+}
+
+.header-split {
+    display: flex;
+}
+
+.header-split h2 {
+    padding: 25px 100px;
+}
+
+.register-unselected {
+    border-right: 2px solid rgb(185, 185, 185);
+    border-bottom: 2px solid rgb(185, 185, 185);
+    color: rgb(112, 112, 112);
+}
+.log-in-unselected {
+    border-left: 2px solid rgb(185, 185, 185);
+    border-bottom: 2px solid rgb(185, 185, 185);
+    color: rgb(112, 112, 112);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 30px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 12pt;
+}
+
+.split {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+form input[type="submit"] {
+    float: right;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 16px;
+    background: #222222;
+    color: #ffffff;
+    outline: 1px solid black;
+    box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+}
+
+.TOS {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+form a {
+    text-align: right;
+    font-weight: 500;
+    margin-top: -15px;
+}
+
+.input-container .flash-container {
+    margin-top: 5px;
+}

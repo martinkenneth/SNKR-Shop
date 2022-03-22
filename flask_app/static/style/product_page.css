@@ -1,0 +1,251 @@
+@import url("../style/base.css");
+@import url("../style/navigation.css");
+@import url("../style/buttons.css");
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 50px; */
+    width: 1100px;
+    margin-top: 150px;
+    padding-bottom: 150px;
+}
+
+.margin-top {
+    margin-top: 30px;
+}
+/*----------------------------------------------------
+    Sneaker Product Details
+------------------------------------------------------*/
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.sneaker-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title > p:first-of-type {
+    font-size: 14pt;
+}
+
+.brand {
+    outline: 1px solid gray;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: rgb(112, 112, 112);
+    font-weight: 500;
+    font-size: 10pt;
+}
+
+.spec-row {
+    gap: 65px;
+}
+
+.spec p:first-child {
+    font-size: 10pt;
+    color: rgb(112, 112, 112);
+}
+
+/*----------------------------------------------------
+    Sneaker Image/ Sizing Table
+------------------------------------------------------*/
+.img-container {
+    width: 500px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 90%;
+    object-fit: cover;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0px;
+    height: 80%;
+    border-radius: 5px;
+    padding: 10px;
+    outline: 1px solid rgb(221, 221, 221);
+    box-shadow: 2px 2px 5px rgb(214, 214, 214);
+}
+
+section h2 {
+    font-size: 25pt;
+    margin-left: 8px;
+}
+
+form {
+    width: 400px;
+    margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 14pt;
+    border-radius: 6px;
+}
+/* --------------------------------------------------------*/
+table {
+    padding: 0;
+    border-collapse: separate;
+    border-spacing: 8px;
+    border: none;
+}
+table tr td {
+    padding: 7px 10px;
+    text-align: center;
+    border-radius: 5px;
+    outline: 1px solid rgb(221, 221, 221);
+    font-weight: 500;
+    font-size: 12pt;
+}
+
+.no-stock {
+    /* background-color: rgb(214, 214, 214); */
+    color: rgb(189, 189, 189);
+}
+
+.size {
+    font-size: 0.7em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.size:hover {
+    background: #222222;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.focus {
+    background: #222222;
+    color: #fff;
+}
+/* -------------------------------------------------------- */
+.center {
+    width: 100%;
+}
+.center input[type="submit"] {
+    float: right;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 7px;
+    font-weight: 800;
+    font-size: 18px;
+    /* background: #fff; */
+    /* color: #222222; */
+    outline: 1px solid black;
+    /* box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%); */
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.description {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+hr {
+    margin: 50px 0;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    background-color: #ddd;
+    color: #ddd;
+    border-bottom: 1px solid #eee;
+    height: 2px;
+}
+
+/*----------------------------------------------------
+    New Releases Section Styling 
+------------------------------------------------------*/
+.similar-items {
+    width: 100%;
+}
+.similar-items > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.see-all {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 5px;
+    width: fit-content;
+}
+.see-all:hover {
+    text-shadow: 0px 0px 1px black;
+}
+.see-all > img {
+    width: 20px;
+}
+.static-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    width: 240px;
+    height: 340px;
+    font-size: 16pt;
+    padding: 10px 10px 20px 10px;
+    border-radius: 5px;
+    outline: 1px solid rgb(221, 221, 221);
+    box-shadow: 2px 2px 5px rgb(214, 214, 214);
+}
+
+.item-container > .img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.item-container > .img-container > img {
+    /* margin: -15px 0px 0px 0px; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-container > p:last-child {
+    width: 100%;
+    font-weight: 600;
+    font-size: 18pt;
+}

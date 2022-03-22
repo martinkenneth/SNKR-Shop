@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/checkout.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <div>
+                <h2>Checkout</h2>
+            </div>
+            <ul>
+                <li>Shipping</li>
+                <li>Payment & Billing</li>
+                <li>Order Review</li>
+                <li>Order Confirmation</li>
+            </ul>
+
+            <div class="split">
+                <form class="left" autocomplete="off">
+                    <div class="input-sect">
+                        <div class="input-row">
+                            <input type="text" name="first_name" placeholder="First Name">
+                            <input type="text" name="last_name" placeholder="Last Name">
+                        </div>
+                        <div class="input-row">
+                            <input type="text" name="address" placeholder="Address / PO Box">
+                        </div>
+                        <div class="input-row">
+                            <input type="text" name="city" placeholder="City">
+                            <input type="text" name="state" placeholder="State">
+                            <input type="text" name="zip_code" placeholder="Zip / Postal Code">
+                        </div>
+                        <div class="input-row">
+                            <input type="text" name="phone" placeholder="Phone">
+                            <input type="text" name="email" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="delivery-sect">
+                        <h3>Delivery Method</h3>
+                        <div class="delivery-container">
+                            <div class="row">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" name="delivery" value="standard">
+                                    <label>Standard Delivery</label>
+                                </div>
+                                <b>FREE</b>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" name="delivery" value="upgraded">
+                                    <label>Upgraded Delivery</label>
+                                </div>
+                                <b>$9.99</b>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" name="delivery" value="rush">
+                                    <label>Rush Delivery</label>
+                                </div>
+                                <b>$22.99</b>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" name="delivery" value="express">
+                                    <label>Express Delivery</label>
+                                </div>
+                                <b>$32.99</b>
+                            </div>
+                        </div>
+                        <a href="#" class="btn checkout">Proceed to Payment and Billing</a>
+                    </div>
+                </form>
+                <div class="right">
+                    <div class="sect-1">
+                        <div class="scroll-hide">
+                            {% for sneaker in user.cart %}
+                            <div class="item">
+                                <a href="/sneaker/{{sneaker.id}}" class="img-container">
+                                    <img src="../static/assets/shoe_assets/{{sneaker.id}}.png" alt="">
+                                </a>
+                                <div class="item-description">
+                                    <a href="/sneaker/{{sneaker.id}}">
+                                        <h4>{{sneaker.name}} {{sneaker.name2}}</h4>
+                                    </a>
+                                    <div class="contain">
+                                        <p>Size: <span>{{sneaker.size}}</span></p>
+                                        <p>Quantity: <span>1</span></p>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <p><b>${{sneaker.price}}</b></p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px;">
+                    <div class="sect-2">
+                        <h3>Order Summary</h3>
+                        <div class="order-sum">
+                            <div class="row">
+                                <p>Subtotal</p>
+                                <p>${{total}}.00</p>
+                            </div>
+                            <div class="row">
+                                <p>Estimated Shipping</p>
+                                <b>FREE</b>
+                            </div>
+                            <div class="row">
+                                <p>Tax</p>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <b> Total</b>
+                            <b>${{total}}.00</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

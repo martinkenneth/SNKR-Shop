@@ -1,0 +1,145 @@
+@import url("../style/base.css");
+@import url("../style/navigation.css");
+@import url("../style/buttons.css");
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 77px;
+    padding-bottom: 150px;
+}
+
+/*----------------------------------------------------
+    Hero Section Styling 
+------------------------------------------------------*/
+.hero {
+    width: 1000px;
+    height: 450px;
+    /* background-color: brown; */
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgb(214, 214, 214);
+}
+
+.hero > img {
+    width: 100%;
+    height: 140%;
+    /* margin: ; */
+    object-fit: cover;
+}
+
+/*----------------------------------------------------
+    Base Section Styling 
+------------------------------------------------------*/
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 1000px;
+    height: min-content;
+}
+section > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.see-all {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 5px;
+    width: fit-content;
+}
+.see-all:hover {
+    text-shadow: 0px 0px 1px black;
+}
+.see-all > img {
+    width: 20px;
+}
+
+/*----------------------------------------------------
+    New Releases Section Styling 
+------------------------------------------------------*/
+.static-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    width: 240px;
+    height: 340px;
+    font-size: 16pt;
+    padding: 10px 10px 20px 10px;
+    border-radius: 5px;
+    outline: 1px solid rgb(221, 221, 221);
+    box-shadow: 2px 2px 5px rgb(214, 214, 214);
+}
+
+.item-container:hover,
+.logo-container:hover {
+    /* background: #292828;
+    color: #fff; */
+    /* font-weight: bolder; */
+    box-shadow: 0 6px 20px rgb(93 93 93 / 50%);
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.img-container > img {
+    /* margin: -15px 0px 0px 0px; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-container > p:last-child {
+    width: 100%;
+    font-weight: 600;
+    font-size: 18pt;
+}
+
+/*----------------------------------------------------
+    Popular Brands Styling
+------------------------------------------------------*/
+.logo-list {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 325px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(175, 175, 175);
+}
+
+.logo-container > img {
+    /* margin: -15px 0px 0px 0px; */
+    width: 25%;
+    object-fit: cover;
+}

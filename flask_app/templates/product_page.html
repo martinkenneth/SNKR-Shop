@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/product_page.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+        <input type="search" name="Search" id="search-bar" placeholder="Search">
+        <ul>
+            <li><a href="/">Featured</a></li>
+            <li><a href="/">News</a></li>
+            {% if session['user_id']:%}
+            <li><a href="/">Saved</a></li>
+            <li class="dropdown">
+                <a href="/">My Account</a>
+                <div class="dropdown-content">
+                    <a href="/user/logout">Logout</a>
+                </div>
+            </li>
+            {% else %}
+            <li><a href="/register" class="btn">Sign Up</a></li>
+            <li><a href="/login" class="btn">Login</a></li>
+            {% endif %}
+
+            <li><a href="/cart"><img src="../static/assets/icons/cart.png" alt="cart-img"></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <div class="row">
+                <div class="sneaker-details-container">
+                    <div class="title">
+                        <h3>{{sneaker.name}}</h3>
+                        <p>{{sneaker.name2}}</p>
+                    </div>
+                    <p class="brand">{{sneaker.brand}}</p>
+                    <div class="spec-row row">
+                        <div class="spec">
+                            <p>Colorway</p>
+                            <p>{{sneaker.colorway}}</p>
+                        </div>
+                        <div class="spec">
+                            <p>Style</p>
+                            <p>{{sneaker.style}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-container">
+                    <a href="#">Share</a>
+                    <a href="#">Like</a>
+                </div>
+            </div>
+            <div class="row margin-top">
+                <div class="img-container">
+                    <img src="../static/assets/shoe_assets/{{sneaker.id}}.png" alt="{{sneaker.name}}-{{sneaker.name2}}">
+                </div>
+                <section>
+                    <h2>${{sneaker.price}}</h2>
+                    <form action="/cart/add" method="post">
+                        <select name="in_stock_id">
+                            {% if sneaker.flash %}
+                            <option value="" selected disabled>OUT OF STOCK</option>
+                            {% endif %}
+                            {% for size in sneaker.stock %}
+                            {% if sneaker.stock[size][0] > 0 %}
+                            <option value="{{sneaker.stock[size][-1]}}">US M {{size}}</option>
+                            {% else %}
+                            <option value="{{size}}" disabled class="no-stock">US M {{size}}</option>
+                            {% endif %}
+                            {% endfor %}
+                            <!-- <option value="7">US M 7</option>
+                            <option value="7.5" disabled>US M 7.5</option>
+                            <option value="8">US M 8</option>
+                            <option value="8.5" disabled>US M 8.5</option>
+                            <option value="9">US M 9</option>
+                            <option value="9.5">US M 9.5</option>
+                            <option value="10">US M 10</option>
+                            <option value="10.5">US M 10.5</option>
+                            <option value="11">US M 11</option>
+                            <option value="11.5">US M 11.5</option>
+                            <option value="12">US M 12</option> -->
+                        </select>
+                        <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                        <div class="center">
+                            <input type="submit" value="Add to Bag" class="btn">
+                        </div>
+                    </form>
+                    <!-- <div class="sizes">
+                        <table>
+                            <tr>
+                                <td class="size" onclick="select(this)">US M 7</td>
+                                <td class="size" onclick="select(this)">US M 7.5</td>
+                                <td class="size">US M 8</td>
+                                <td class="no-stock">US M 8.5</td>
+                                <td class="size">US M 9</td>
+                            </tr>
+                            <tr>
+                                <td class="no-stock">US M 9.5</td>
+                                <td class="size">US M 10</td>
+                                <td class="size">US M 10.5</td>
+                                <td class="size">US M 11</td>
+                                <td class="size">US M 11.5</td>
+                            </tr>
+                            <tr>
+                                <td class="size">US M 12</td>
+                                <td class="no-stock">US M 12.5</td>
+                                <td class="no-stock">US M 13</td>
+                                <td class="no-stock">US M 13.5</td>
+                            </tr>
+                        </table>
+                    </div> -->
+                </section>
+            </div>
+            <div class="description">
+                <h4>Description</h4>
+                <p>{{sneaker.description}}</p>
+            </div>
+
+            <hr>
+
+            <div class="similar-items">
+                <div>
+                    <h1>New Releases</h1>
+                    <a href="/" class="see-all">See All<img src="../static/assets/icons/right_arrow.png" alt=""></a>
+                </div>
+                <div class="static-list">
+                    {% for sneaker in sneakers: %}
+                    <a href="/sneaker/{{sneaker.id}}" class="item-container">
+                        <div class="img-container">
+                            <img src="../static/assets/shoe_assets/{{sneaker.id}}.png"
+                                alt="{{sneaker.name}}-{{sneaker.name2}}">
+                        </div>
+                        <p>{{sneaker.name}} {{sneaker.name2}}</p>
+                        <p>${{sneaker.price}}</p>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--Linking an image: <img src="{{ url_for('static', filename='my_img.png') }}"> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='./javascript/script.js') }}"></script>
+</body>
+
+</html>

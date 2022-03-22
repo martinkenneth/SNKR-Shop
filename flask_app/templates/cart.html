@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/cart.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+        <input type="search" name="Search" id="search-bar" placeholder="Search">
+        <ul>
+            <li><a href="/">Featured</a></li>
+            <li><a href="/">News</a></li>
+            {% if session['user_id']:%}
+            <li><a href="/">Saved</a></li>
+            <li class="dropdown">
+                <a href="/">My Account</a>
+                <div class="dropdown-content">
+                    <a href="/user/logout">Logout</a>
+                </div>
+            </li>
+            {% else %}
+            <li><a href="/register" class="btn">Sign Up</a></li>
+            <li><a href="/login" class="btn">Login</a></li>
+            {% endif %}
+
+            <li><a href="/cart"><img src="../static/assets/icons/cart.png" alt="cart-img"></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            {% if user.cart%}
+            <h1>Cart</h1>
+            {% endif %}
+            <div class="split-cart">
+                <div class="left">
+                    {% if not user.cart%}
+                    <div class="empty-message">
+                        <h3>Your cart is empty.</h3>
+                        <a href="/" class="btn"> Browse Products</a>
+                    </div>
+                    {% endif %}
+                    {% for sneaker in user.cart %}
+                    <div class="item">
+                        <a href="/sneaker/{{sneaker.id}}" class="img-container">
+                            <img src="../static/assets/shoe_assets/{{sneaker.id}}.png" alt="">
+                        </a>
+                        <div class="item-description">
+                            <a href="/sneaker/{{sneaker.id}}">
+                                <h3>{{sneaker.name}} {{sneaker.name2}}</h3>
+                            </a>
+                            <div class="contain">
+                                <div class="sect">
+                                    <p>Colorway:</p>
+                                    <p>{{sneaker.colorway}}</p>
+                                </div>
+                                <div class="sect">
+                                    <p>Size: </p>
+                                    <p>{{sneaker.size}}</p>
+                                </div>
+                            </div>
+                            <p>${{sneaker.price}}</p>
+                        </div>
+                        <div class="increment">
+                            <form action="/cart/delete/{{sneaker.cart_id}}" method="post">
+                                <input type="image" src="../static/assets/icons/minus.png" alt="">
+                                <!-- <input type="submit" value="" stc="../assets/icons/minus.png"> -->
+                                <!-- <img src="../static/assets/icons/minus.png" alt="minus"> -->
+                            </form>
+                            <p>1</p>
+                            <a href="#"><img src="../static/assets/icons/plus.png" alt="plus"></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- RIGHT SECTION -->
+                </div>
+                {% if user.cart%}
+                <div class="right">
+                    <h3>Order Summary</h3>
+                    <div class="sect-1">
+                        <div class="row">
+                            <p>Subtotal</p>
+                            <p>${{total}}.00</p>
+                        </div>
+                        <div class="row">
+                            <p>Estimated Shipping</p>
+                            <b>FREE</b>
+                        </div>
+                        <div class="row">
+                            <p>Tax</p>
+                            <p>TBD</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="sect-2">
+                        <div class="row">
+                            <b> Total</b>
+                            <b>${{total}}.00</b>
+                        </div>
+                    </div>
+                    <a href="/cart/checkout" class="btn checkout">Proceed to Checkout</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- <div class="similar-items">
+            <div>
+                <h1>New Releases</h1>
+                <a href="/" class="see-all">See All<img src="../static/assets/icons/right_arrow.png" alt=""></a>
+            </div>
+            <div class="static-list">
+                {% for sneaker in sneakers: %}
+                <a href="/sneaker/{{sneaker.id}}" class="item-container">
+                    <div class="img-container">
+                        <img src="../static/assets/shoe_assets/{{sneaker.id}}.png"
+                            alt="{{sneaker.name}}-{{sneaker.name2}}">
+                    </div>
+                    <p>{{sneaker.name}} {{sneaker.name2}}</p>
+                    <p>${{sneaker.price}}</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div> -->
+    </main>
+    <!--Linking an image: <img src="{{ url_for('static', filename='my_img.png') }}"> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='./css/script.js') }}"></script>
+</body>
+
+</html>

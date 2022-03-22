@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/*------------------------------------------------------
+    Base Styling
+------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px dotted red; */
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border: 1px solid rgb(211, 211, 211);
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*----------------------------------------------------
+    Flash Message Styling
+------------------------------------------------------*/
+.flash-container {
+    width: 500px;
+}
+.flash-msg {
+    color: rgb(201, 41, 41);
+    font-size: 11pt;
+}

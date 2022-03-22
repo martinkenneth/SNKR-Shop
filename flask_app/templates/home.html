@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/home.css') }}">
+</head>
+
+<body>
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+        <input type="search" name="Search" id="search-bar" placeholder="Search">
+        <ul>
+            <li><a href="/">Featured</a></li>
+            <li><a href="/">News</a></li>
+            {% if session['user_id']:%}
+            <li><a href="/">Saved</a></li>
+            <li class="dropdown">
+                <a href="/">My Account</a>
+                <div class="dropdown-content">
+                    <a href="/user/logout">Logout</a>
+                </div>
+            </li>
+            {% else %}
+            <li><a href="/register" class="btn">Sign Up</a></li>
+            <li><a href="/login" class="btn">Login</a></li>
+            {% endif %}
+
+            <li><a href="/cart"><img src="../static/assets/icons/cart.png" alt="cart-img"></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <div class="hero">
+                <img src="../static/assets/hero/hero1.jpg" alt="" style="width:100%">
+            </div>
+            <section>
+                <div>
+                    <h1>New Releases</h1>
+                    <a href="/" class="see-all">See All<img src="../static/assets/icons/right_arrow.png" alt=""></a>
+                </div>
+                <div class="static-list">
+                    {% for sneaker in sneakers: %}
+                    <a href="/sneaker/{{sneaker.id}}" class="item-container">
+                        <div class="img-container">
+                            <img src="../static/assets/shoe_assets/{{sneaker.id}}.png"
+                                alt="{{sneaker.name}}-{{sneaker.name2}}">
+                        </div>
+                        <p>{{sneaker.name}} {{sneaker.name2}}</p>
+                        <p>${{sneaker.price}}</p>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1>Popular Brands</h1>
+                    <a href="/" class="see-all">See All<img src="../static/assets/icons/right_arrow.png" alt=""></a>
+                </div>
+                <div class="logo-list">
+                    <a href="/" class="logo-container">
+                        <img src="../static/assets/icons/nike.png" alt="nike-logo">
+                    </a>
+                    <a href="/" class="logo-container">
+                        <img src="../static/assets/icons/jordan.png" alt="jordan-logo">
+                    </a>
+                    <a href="/" class="logo-container">
+                        <img src="../static/assets/icons/adidas.png" alt="adidas-logo">
+                    </a>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1>Trending</h1>
+                    <a href="/" class="see-all">See All<img src="../static/assets/icons/right_arrow.png" alt=""></a>
+                </div>
+                <div class="static-list">
+                    {% for sneaker in sneakers: %}
+                    <a href="/" class="item-container">
+                        <div class="img-container">
+                            <img src="../static/assets/shoe_assets/{{sneaker.id}}.png"
+                                alt="{{sneaker.name}}-{{sneaker.name2}}">
+                        </div>
+                        <p>{{sneaker.name}} {{sneaker.name2}}</p>
+                        <p>${{sneaker.price}}</p>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </main>
+    <!--Linking an image: <img src="{{ url_for('static', filename='my_img.png') }}"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='./css/my_script.js') }}"></script> -->
+</body>
+
+</html>

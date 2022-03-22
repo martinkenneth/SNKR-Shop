@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKR Shop</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style/login_and_reg.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1>SNKR Shop</h1>
+        </a>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <div class="container">
+                <div class="header-split">
+                    <h2>Sign Up</h2>
+                    <a href="/login">
+                        <h2 class="log-in-unselected">Log In</h2>
+                    </a>
+                </div>
+                <form action="/user/register" method="post" autocomplete="off">
+                    <div class="input-container">
+                        <div class="split">
+                            <input type="text" placeholder="First Name" name="first_name">
+                            <input type="text" placeholder="Last Name" name="last_name">
+                        </div>
+                        {% with messages = get_flashed_messages(category_filter=["invalid name"]) %}
+                        {% for message in messages %}
+                        <div class="flash-container">
+                            <p class="flash-msg">{{message}}</p>
+                        </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" placeholder="Email" name="email">
+                        {% with messages = get_flashed_messages(category_filter=["invalid email"]) %}
+                        {% for message in messages %}
+                        <div class="flash-container">
+                            <p class="flash-msg">{{message}}</p>
+                        </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+                    <div class="input-container">
+                        <input type="password" placeholder="Password" name="password">
+                        {% with messages = get_flashed_messages(category_filter=["invalid password"]) %}
+                        {% for message in messages %}
+                        <div class="flash-container">
+                            <p class="flash-msg">{{message}}</p>
+                        </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="input-container">
+                        <input type="password" placeholder="Confirm Password" name="password2">
+                        {% with messages = get_flashed_messages(category_filter=["invalid password match"]) %}
+                        {% for message in messages %}
+                        <div class="flash-container">
+                            <p class="flash-msg">{{message}}</p>
+                        </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+                    <div class="TOS">
+                        <input type="checkbox" name="agree" id="">
+                        <p>By signing up, you agree to the <b>Terms of Service</b>.</p>
+                    </div>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--Linking an image: <img src="{{ url_for('static', filename='my_img.png') }}"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='./css/my_script.js') }}"></script> -->
+</body>
+
+</html>
