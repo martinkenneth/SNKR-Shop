@@ -1,7 +1,6 @@
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
-<h2 align="center">SNKR-Shop</h2>
+<h1>SNKR-Shop</h1>
   <p align="center">
   Full Stack e-commerce website inspired by 'StockX' with the purpose of buying and selling shoes. 
   </p>
