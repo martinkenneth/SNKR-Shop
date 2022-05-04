@@ -1,19 +1,26 @@
-# SNKR-Shop
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<h2 align="center">SNKR-Shop</h2>
+  <p align="center">
+  Full Stack e-commerce website inspired by 'StockX' with the purpose of buying and selling shoes. 
+  </p>
+  <br />
+  <h4 align="center">By: Kenneth Martin</h4>
+</div>
 
-Full Stack e-commerce website inspired by 'StockX' with the purpose of buying and selling shoes. 
+<!-- ABOUT THE PROJECT -->
+## Built With
 
-## Technologies:
+Frontend
+* HTML
+* CSS
+* Javascript
 
-### Frontend
-- HTML
-- CSS
-- Javscript
+Backend
+* Python
+* Flask
+  * Flask-Bcrypt
 
-### Backend
-- Python
-- Flask
-  - Flask-Bcrypt
-
-### Database
-- MySQL
-
+Database
+* MySQL
