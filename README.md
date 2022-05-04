@@ -5,7 +5,8 @@
   <p align="center">
   Full Stack e-commerce website inspired by 'StockX' with the purpose of buying and selling shoes. 
   </p>
-  <br />
+  
+  <img src="/README-assets/SNKR-Shop-Demo.gif" alt="SNKR-Shop Demo">
   <h4 align="center">By: Kenneth Martin</h4>
 </div>
 
